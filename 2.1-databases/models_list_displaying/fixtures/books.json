@@ -16,5 +16,50 @@
       "author": "Джордж Оруэл",
       "pub_date": "2016-12-06"
     }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "name": "Клара и Солнце",
+      "author": "Кадзуо Исигуро",
+      "pub_date": "2021-05-05"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "name": "Лили и осьминог",
+      "author": "Стивен Роули",
+      "pub_date": "2017-03-03"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "name": "Четыре ветра",
+      "author": "Кристин Ханна",
+      "pub_date": "2021-05-03"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+      "name": "Колыбельная звезд",
+      "author": "Карен Уайт",
+      "pub_date": "2018-02-15"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 7,
+    "fields": {
+      "name": "Тонкое искусство пофигизма",
+      "author": "Марк Мэнсон",
+      "pub_date": "2016-03-02"
+    }
   }
 ]

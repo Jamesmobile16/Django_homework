@@ -9,4 +9,4 @@ class Book(models.Model):
     pub_date = models.DateField(u'Дата публикации')
 
     def __str__(self):
-        return self.name + " " + self.author
+        return self.name + self.pub_date + self.author
