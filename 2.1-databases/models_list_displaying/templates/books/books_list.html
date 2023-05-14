@@ -10,7 +10,7 @@
         <div class="row">
                 {% for book in books %}
                     <div class="book col-md-4">
-                        <h2>{{book.name}}</h2>
+                        <h2><a href="/books/{{ book.pub_date|date:'Y-m-d' }}"> {{ book.name }} </a></h2>
                         <p>Автор: {{book.author}}</p>
                         <p>Дата публикации: {{book.pub_date|date:'Y-m-d'}}</p>
                     </div>
@@ -18,10 +18,10 @@
             </div>
         <div align="center">
         {% if previous_page is not None %}
-            <h6><a href="/books/{{ previous_page.pub_date_str }}">&lt&lt{{ previous_page.pub_date }}</a>
+            <h6><a href="/books/{{ previous_page.pub_date|date:'Y-m-d' }}">&lt&lt{{ previous_page.pub_date|date:'Y-m-d' }}</a>
         {% endif %}
         {% if next_page is not None %}
-            <a href="/books/{{ next_page.pub_date_str }}"> {{ next_page.pub_date }}&gt&gt</a></h6>
+            <a href="/books/{{ next_page.pub_date|date:'Y-m-d' }}"> {{ next_page.pub_date|date:'Y-m-d' }}&gt&gt</a></h6>
         {% endif %}
         </div>
         </div>
