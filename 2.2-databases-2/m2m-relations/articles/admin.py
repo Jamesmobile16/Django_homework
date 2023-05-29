@@ -7,17 +7,14 @@ class RelationshipInlineFormset(BaseInlineFormSet):
     def clean(self):
         count = 0
         for form in self.forms:
-            if form.cleaned_data[is_main]:
-                count += 1
-        if count == 0:
-            # В form.cleaned_data будет словарь с данными
-            # каждой отдельной формы, которые вы можете проверить
-            # form.cleaned_data
-            # вызовом исключения ValidationError можно указать админке о наличие ошибки
-            # таким образом объект не будет сохранен,
-            # а пользователю выведется соответствующее сообщение об ошибке
-            raise ValidationError('Тут всегда ошибка')
-        return super().clean()  # вызываем базовый код переопределяемого метода
+            if 'is_main' in form.cleaned_data:
+                if form.cleaned_data['is_main']:
+                    count += 1
+            if count == 0:
+                raise ValidationError('Какая-то ошибка')
+            else:
+                pass
+        return super().clean()
 
 class RelationshipInline(admin.TabularInline):
     model = Scope
@@ -29,6 +26,6 @@ class ObjectAdmin(admin.ModelAdmin):
     inlines = [RelationshipInline]
 
 
-# @admin.register(Tag)
-# class ObjectAdmin(admin.ModelAdmin):
-#     pass
+@admin.register(Tag)
+class ObjectAdmin(admin.ModelAdmin):
+    pass

@@ -18,7 +18,7 @@ class Article(models.Model):
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=15, verbose_name='Название тэга')
+    name = models.CharField(max_length=30, verbose_name='Название тэга')
 
     class Meta:
         verbose_name = 'Тэг'
@@ -33,6 +33,7 @@ class Scope(models.Model):
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='scope')
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='scope')
     is_main = models.BooleanField(default=False, verbose_name='основной тэг')
+
 
 
 
