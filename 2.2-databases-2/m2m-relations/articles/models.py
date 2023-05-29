@@ -28,6 +28,7 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+
 class Scope(models.Model):
 
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='scope')
