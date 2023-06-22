@@ -33,7 +33,7 @@
 
 ```
 # поиск складов, где есть определенный продукт
-GET {{baseUrl}}/stocks/?search=помид
+GET {{baseUrl}}/stocks/?search=помидоры
 Content-Type: application/json
 ```
 
