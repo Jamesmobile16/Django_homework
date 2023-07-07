@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from advertisements.models import Advertisement
+from .models import Advertisement
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -10,7 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'first_name',
-                  'last_name',)
+                  'last_name')
 
 
 class AdvertisementSerializer(serializers.ModelSerializer):
@@ -23,7 +23,7 @@ class AdvertisementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Advertisement
         fields = ('id', 'title', 'description', 'creator',
-                  'status', 'created_at', )
+                  'status', 'created_at',)
 
     def create(self, validated_data):
         """Метод для создания"""
@@ -39,7 +39,13 @@ class AdvertisementSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         """Метод для валидации. Вызывается при создании и обновлении."""
-
         # TODO: добавьте требуемую валидацию
-
+        status = data.get('status')
+        if status == 'closed':
+            return data
+        post = Advertisement.objects.filter(status='open')
+        post_quantity = post.count()
+        limit_ = 10
+        if post_quantity > limit_:
+            raise serializers.ValidationError('Exceeded the number of posts')
         return data

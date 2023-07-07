@@ -7,14 +7,14 @@ POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "Помидор",
-  "description": "Лучшие помидоры на рынке"
+  "title": "MacBook Air 15",
+  "description": "Apple MacBook Air 15 16/512 Space Grey"
 }
 
 ###
 
 # получение продуктов
-GET {{baseUrl}}/products/
+GET {{baseUrl}}/products/?page=1
 Content-Type: application/json
 
 ###
@@ -24,7 +24,7 @@ PATCH {{baseUrl}}/products/1/
 Content-Type: application/json
 
 {
-  "description": "Самые сочные и ароматные помидорки"
+  "description": "Самые сочные и ароматные помидорки у Ашотика"
 }
 
 ###
@@ -46,17 +46,17 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "мой адрес не дом и не улица, мой адрес сегодня такой: www.ленинград-спб.ru3",
+  "address": "Moscow",
   "positions": [
     {
-      "product": 2,
-      "quantity": 250,
-      "price": 120.50
+      "product": 1,
+      "quantity": 40,
+      "price": 120
     },
     {
-      "product": 3,
-      "quantity": 100,
-      "price": 180
+      "product": 2,
+      "quantity": 5,
+      "price": 99000
     }
   ]
 }
@@ -64,20 +64,15 @@ Content-Type: application/json
 ###
 
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/4/
+PATCH {{baseUrl}}/stocks/2/
 Content-Type: application/json
 
 {
   "positions": [
     {
       "product": 2,
-      "quantity": 100,
-      "price": 130.80
-    },
-    {
-      "product": 3,
-      "quantity": 243,
-      "price": 145
+      "quantity": 7,
+      "price": 89000
     }
   ]
 }
