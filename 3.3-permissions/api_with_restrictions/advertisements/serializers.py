@@ -43,7 +43,7 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         status = data.get('status')
         if status == 'closed':
             return data
-        post = Advertisement.objects.filter(status='open')
+        post = Advertisement.objects.filter(creator=self.context["request"].user, status='open')
         post_quantity = post.count()
         limit_ = 10
         if post_quantity > limit_:
