@@ -6,7 +6,7 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Advertisement
 from .serializers import AdvertisementSerializer
 from .filters import AdvertisementFilter
-from api_with_restrictions.permissions import IsAuthor
+from .permissions import IsAuthor
 
 
 class AdvertisementViewSet(ModelViewSet):
